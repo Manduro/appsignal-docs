@@ -6,7 +6,6 @@ title: "GraphQL Explorer"
     <input type="text" id="token" name="token" class="c-form__input">
   </div>
   <div id="graphiql" style="height: 100vh;">Loading..</div>
-  <!-- GraphiQL -->
 
 
 <script crossorigin src="https://unpkg.com/react/umd/react.production.min.js"></script>

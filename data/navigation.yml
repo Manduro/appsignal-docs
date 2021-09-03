@@ -726,9 +726,6 @@ sections:
               -
                 name: "Errors"
                 link: "/api/public-endpoint/errors.html"
-          -
-            name: "GraphQL"
-            link: "/api/graphql.html"
   -
     name: "Services & Integrations"
     sub_sections:
