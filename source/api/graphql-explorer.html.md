@@ -1,6 +1,6 @@
-<div class="endpoint-field">
-  <label for="token">Enter your API <a href="https://appsignal.com/users/edit" target="_blank">token</a> </label><br>
-  <input type="text" id="token" name="token">
+<div class="c-form">
+  <label for="token" class="c-form__label">Enter your API <a href="https://appsignal.com/users/edit" target="_blank">token</a> </label><br>
+  <input type="text" id="token" name="token" class="c-form__input">
 </div>
 <div id="graphiql" style="height: 100vh;">Loading..</div>
 <!-- GraphiQL -->
