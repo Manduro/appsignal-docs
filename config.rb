@@ -19,7 +19,7 @@ set :js_dir, "assets/javascripts"
 set :images_dir, "assets/images"
 
 # The graphiql needs the entire width of the screen to render and to make it easier to use
-page 'api/graphql-explorer.html', :layout => false
+page 'api/graphql-explorer.html', :layout => "graphql-explorer"
 activate :syntax,
   :line_numbers => true,
   :css_class => "code-block"

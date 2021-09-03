@@ -1,0 +1,23 @@
+!!! 5
+
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+    %title= title
+    = javascript_include_tag "bundle"
+    %link{:rel => "mask-icon", :href => "/assets/images/appsignal-safari-icon.svg", :color => "#21375A" }
+
+    %meta{:content => title, :property => "og:title"}
+    %meta{:content => site_name, :property => "og:site_name"}
+    %meta{:content => "en_US", :property => "og:locale"}
+
+    %meta{:content => "@appsignal", :name => "twitter:site"}
+    %meta{:content => "summary", :name => "twitter:card"}
+    %meta{:content => canonical_url("/assets/images/dl_logo/square-mark-dark.png"), :name => "twitter:image"}
+    %meta{:content => "AppSignal logo icon", :name => "twitter:image:alt"}
+
+    = partial "analytics"
+
+  %body.font-rubik.bg-gray-100
+    = yield
