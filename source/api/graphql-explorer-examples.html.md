@@ -145,38 +145,47 @@ uery Search(
   "query": "tag:value" // replace the word value with the values you are searching for
 }
 ```
-<script crossorigin src="https://unpkg.com/react/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/graphiql/graphiql.min.js"></script>
-<link href="https://unpkg.com/graphiql/graphiql.min.css" rel="stylesheet" />
 
+### Fetch error count
 
-<script>
-  function graphQLFetcher(graphQLParams) {
-    let token = document.querySelector('#token').value;
-    return fetch(
-      `https://appsignal.com/graphql?token=${token}`,
-      {
-        method: 'post',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(graphQLParams),
-        credentials: 'omit',
-      },
-    ).then(function (response) {
-      return response.json().catch(function () {
-        return response.text();
-      });
-    });
+#### Query
+```graphql
+query MetricsListQuery($appId: String!, $start: DateTime, $end: DateTime, $timeframe: TimeframeEnum, $query: [MetricAggregation!]!) {
+    app(id: $appId) {
+      id
+      metrics {
+        list(start: $start, end: $end, query: $query, timeframe: $timeframe) {
+          start
+          end
+          rows {
+            name
+            tags {
+              key
+              value
+            }
+            fields {
+              key
+              value
+            }
+          }
+        }
+      }
+    }
   }
+```
 
-  ReactDOM.render(
-    React.createElement(GraphiQL, {
-      fetcher: graphQLFetcher,
-      defaultVariableEditorOpen: false,
-    }),
-    document.getElementById('graphiql'),
-  );
-</script>
+#### Query variables
+```graphql
+{
+  "appId": "YOUR-APP-ID",
+  "start": "2021-06-04T13:00:00.000Z", // change this to the date of your preference
+  "end": "2021-12-21T14:00:00.000Z",   // change this to the date of your preference
+  "query": [
+    {
+    "name": "transaction_exception_count",
+    "tags": [{ "key": "namespace", "value": "*" }],
+    "fields": [{ "field": "COUNTER", "aggregate": "SUM" }]
+    }
+  ]
+}
+```
