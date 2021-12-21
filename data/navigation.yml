@@ -698,6 +698,13 @@ sections:
           -
             name: "GraphQL"
             link: "/api/graphql-explorer.html"
+            sub_pages:
+              -
+                name: "Explorer"
+                link: "/api/graphql-explorer.html"
+              -
+                name: "Examples"
+                link: "/api/graphql-explorer-examples.html"
           -
             name: "Graphs"
             link: "/api/graphs.html"
