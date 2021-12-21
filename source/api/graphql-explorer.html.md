@@ -1,7 +1,7 @@
 ---
 title: "GraphQL Explorer"
 ---
-Use this GraphQL explorer to play around with AppSignal's GraphQL API. The information you see within AppSignal UI is fetched using this API.
+Use this GraphQL explorer to play around with AppSignal's GraphQL API. This is the API used in our frontend, so it will remain always up to date. Please note that documenting this API is a work in progress.
 
 ## Explorer
 
