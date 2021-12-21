@@ -208,3 +208,6 @@ to = "/guides/custom-data/"
 [[redirects]]
 from = "/nodejs/tracing/tagging.html"
 to = "/guides/custom-data/"
+[[redirects]]
+from = "/uptime-monitoring.html"
+to = "/uptime-monitoring/setup.html"

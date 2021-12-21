@@ -1,6 +1,6 @@
 # Mix tasks
 
-AppSignal for Elixir doesn't automatically instrument mix tasks, but you can set up manual instrumentation and error handling using [custom instrumentation](https://docs.appsignal.com/elixir/instrumentation/).
+AppSignal for Elixir doesn't automatically instrument mix tasks, but you can set up manual instrumentation and error handling using [custom instrumentation](/elixir/instrumentation/).
 
 ## Starting and stopping AppSignal
 
@@ -40,7 +40,7 @@ end
 
 ## Measuring performance
 
-To measure performance in your task, start and stop a transaction manually and add events using the instrumentation helpers, like described in the [custom helper instrumentation](https://docs.appsignal.com/elixir/instrumentation/instrumentation.html#helper-transactions).
+To measure performance in your task, start and stop a transaction manually and add events using the instrumentation helpers, like described in the [custom helper instrumentation](/elixir/instrumentation/instrumentation.html#helper-transactions).
 
 ```elixir
 defmodule Mix.Tasks.Instrument do

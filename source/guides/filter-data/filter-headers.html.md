@@ -36,7 +36,7 @@ In the Ruby integration, AppSignal automatically stores the configured request h
 
 To configure which request headers to collect for each request, add the following configuration to your `config/appsignal.yml` file in the environment group you want it to apply. The [`request_headers`][ruby request headers] value is an Array of Strings.
 
-[ruby request headers]: /ruby/configuration/options.html#option-filter_session_data
+[ruby request headers]: /ruby/configuration/options.html#option-request_headers
 
 ```yaml
 # Example: config/appsignal.yml
@@ -58,7 +58,7 @@ In the Elixir integration, AppSignal automatically stores the configured request
 
 To configure which request headers to collect for each request, add the following configuration to your `config/appsignal.exs` file in the environment group you want it to apply. The [`request_headers`][elixir request headers] value is a List of Strings.
 
-[elixir request headers]: /elixir/configuration/options.html#option-filter_session_data
+[elixir request headers]: /elixir/configuration/options.html#option-request_headers
 
 ```yaml
 # Example: config/appsignal.exs
@@ -66,6 +66,22 @@ config :appsignal, :config,
   request_headers: ~w(
     path-info request-method request-uri server-name server-port server-protocol
   ) # Example list of headers
+```
+
+## Node.js
+
+In the Node.js integration, AppSignal automatically stores the configured request headers for Express apps and other frameworks. It has a built-in list of request headers to collect by default, that can be customized with the [`requestHeaders`][node request headers] config option.
+
+- [Default list of request headers][node request headers]
+
+To configure which request headers to collect for each request, add the following configuration to your AppSignal client instance creation. The [`requestHeaders`][node request headers] value is an Array of Strings.
+
+[node request headers]: /nodejs/configuration/options.html#option-requestheaders
+
+```js
+const appsignal = new Appsignal({
+  requestHeaders: ["accept", "cache-control", "content-length", "range"]
+});
 ```
 
 ## Next steps

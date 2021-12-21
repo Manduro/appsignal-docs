@@ -39,13 +39,13 @@ Postgres metrics provided by the Heroku Log Drain. These metrics are exposed by 
 
 **Waiting connections**: Connections waiting for a lock. If there are too many connections waiting, it could point to over-use of connections by not using a connection pool, for example.
 
-**Index/Table cache hit rate**: Ratio of index lookups served from a buffer cache. Ideally, this value is always 0.99 or higher. If it drops below 0.99 consistently, you may need to upgrade your database plan or add more RAM. Cache hit rate is a great metric to set an [anomaly detection trigger](https://docs.appsignal.com/application/anomaly-detection/) on.
+**Index/Table cache hit rate**: Ratio of index lookups served from a buffer cache. Ideally, this value is always 0.99 or higher. If it drops below 0.99 consistently, you may need to upgrade your database plan or add more RAM. Cache hit rate is a great metric to set an [anomaly detection trigger](/application/anomaly-detection/) on.
 
 **Memory usage**: We track both memory used by Postgres and the system itself. Postgres memory includes buffer cache and memory per connection. For multi-tenant plans, system metrics may include other databases and might be misleading.
 
 **Load average**: Average system load of the Heroku database server, for more information about how to read load averages, we've written a blog post about it a while ago called: ["Understanding system load
 and load averages"](https://blog.appsignal.com/2018/03/28/understanding-system-load-and-load-averages.html).
 
-**I/O read/write operations**: Number of read/write operations in sizes of 16KB Blocks. Each Postgres plan has a limit on IOPS it can perform ([see the Heroku docs here](https://devcenter.heroku.com/articles/heroku-postgres-production-tier-technical-characterization)), this would be an excellent candidate to set an [anomaly detection trigger](https://docs.appsignal.com/application/anomaly-detection/) on.
+**I/O read/write operations**: Number of read/write operations in sizes of 16KB Blocks. Each Postgres plan has a limit on IOPS it can perform ([see the Heroku docs here](https://devcenter.heroku.com/articles/heroku-postgres-production-tier-technical-characterization)), this would be an excellent candidate to set an [anomaly detection trigger](/anomaly-detection/) on.
 
 For more information about these metrics, you can read more on [the Heroku documentation page](https://devcenter.heroku.com/articles/heroku-postgres-metrics-logs).

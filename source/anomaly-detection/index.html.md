@@ -48,6 +48,19 @@ Triggers can be configured for a variety of metrics, such as, but not limited to
   - Memory usage
   - Network usage
 
+### Tags
+Some metrics require tags to be selected as well. For example if you are sending a custom metric to AppSignal that has tags:
+
+
+```
+Appsignal.set_gauge("my_metric_name", 100, : namespace => "web", :action => "hello")
+```
+
+Then while creating a trigger for this metric you need to select tags as well.
+
+![Trigger with tags](/assets/images/screenshots/trigger-with-tags.png)
+
+
 ### Editing triggers
 
 Created Alerts are based on a certain threshold condition from a Trigger. When the Trigger configuration changes, the linked alerts no longer match with the parent Trigger. For this reason it's not possible to directly edit a Trigger's configuration.

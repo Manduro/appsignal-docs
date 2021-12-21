@@ -19,6 +19,7 @@ Let's start first with the things we can use namespaces for:
   <img src="/assets/images/screenshots/app_graphs_namespaces.png">
   <figcaption>Example graphs with multiple namespaces, splitting out a GraphQL API and the "web" namespace. On the left a drop down with the namespace filter.</figcaption>
 </figure>
+<br/>
 
 ## Default namespaces
 
@@ -58,6 +59,12 @@ namespace.
 -> 📖 To set up custom namespaces in your app, read our guide to [setting up namespace with our integrations][guide].
 
 -> 💡 Only letters and underscores are accepted for namespace names.
+
+## Namespace limitations
+
+Namespaces are great to split out certain parts of your application, but there are a few limits to namespaces.
+
+For optimal performance it's recommended to not have more than **10-15** namespaces maximum. While we don't have a hard-limit on this number, we cannot guarantee performance when more than **15** namespaces are used.
 
 ## Ignoring namespaces
 

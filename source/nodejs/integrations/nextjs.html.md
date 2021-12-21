@@ -37,7 +37,7 @@ const { Appsignal } = require("@appsignal/nodejs");
 const appsignal = new Appsignal({
   active: true,
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>",
+  pushApiKey: "<YOUR API KEY>", // Note: renamed from `apiKey` in version 2.2.5
 });
 
 const { getRequestHandler } = require("@appsignal/nextjs");
@@ -89,7 +89,7 @@ const { Appsignal } = require("@appsignal/nodejs");
 const appsignal = new Appsignal({
   active: true,
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>",
+  pushApiKey: "<YOUR API KEY>", // Note: renamed from `apiKey` in version 2.2.5
 });
 
 const { getRequestHandler } = require("@appsignal/nextjs");
@@ -138,7 +138,7 @@ const { Appsignal } = require("@appsignal/nodejs");
 const appsignal = new Appsignal({
   active: true,
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>",
+  pushApiKey: "<YOUR API KEY>", // Note: renamed from `apiKey` in version 2.2.5
 });
 
 const {

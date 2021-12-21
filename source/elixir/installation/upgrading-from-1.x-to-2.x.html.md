@@ -23,8 +23,11 @@ existing dependency on `:appsignal`, and replace it with a dependency on
 `:appsignal_phoenix`.
 
 ```elixir
+# mix.exs
 defp deps do
-  {:appsignal_phoenix, "~> 2.0"}
+  [
+    {:appsignal_phoenix, "~> 2.0"}
+  ]
 end
 ```
 

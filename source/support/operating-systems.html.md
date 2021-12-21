@@ -2,7 +2,7 @@
 title: "Supported Operating Systems"
 ---
 
-The AppSignal integrations for Ruby, Elixir & Node.js contain native extensions and a separate lightweight agent process. These native extensions are supported on most Linux distributions, FreeBSD and macOS/OSX. If an Operating System you use is not supported, please [get in touch](mailto:support@appsignal.com).
+The AppSignal integrations for Ruby, Elixir & Node.js contain native extensions and a separate lightweight agent process. These native extensions are supported on most Linux distributions, FreeBSD and macOS/OSX. If an Operating System you use is not supported, please [get in touch][support].
 
 ## Support table
 
@@ -12,9 +12,10 @@ We currently only support running AppSignal on machines with an Intel based arch
 | ----------------------------------------------------------- | -------------- | -------------- |
 | macOS/OSX                                                   |                |                |
 | &nbsp;&nbsp;&nbsp;&nbsp; - `darwin` <sup>1</sup>            |                | ✓              |
-| &nbsp;&nbsp;&nbsp;&nbsp; - `ARM` Apple Silicon <sup>8</sup> |                |                |
+| &nbsp;&nbsp;&nbsp;&nbsp; - `ARM` Apple Silicon <sup>8</sup> |                | ✓              |
 | Linux <sup>2 3</sup>                                        | ✓              | ✓              |
 | &nbsp;&nbsp;&nbsp;&nbsp; - Alpine Linux <sup>4 5</sup>      |                | ✓              |
+| &nbsp;&nbsp;&nbsp;&nbsp; - ARM <sup>9</sup>                 |                | Experimental   |
 | &nbsp;&nbsp;&nbsp;&nbsp; - CentOS                           | ✓              | ✓              |
 | &nbsp;&nbsp;&nbsp;&nbsp; - Debian                           | ✓              | ✓              |
 | &nbsp;&nbsp;&nbsp;&nbsp; - Fedora                           | ✓              | ✓              |
@@ -29,7 +30,8 @@ We currently only support running AppSignal on machines with an Intel based arch
 - `5`: Dynamic builds (which are required for JRuby) are supported since Ruby gem `2.8.0`.
 - `6`: Does not work directly on Microsoft Window's system. See also point 7.
 - `7`: We do not provide support for this setup. May work with the Windows subsystem for Linux. See also the [Microsoft Windows WSL section](#microsoft-windows-subsystem-for-linux) for more information.
-- `8`: We do not provide support for Apple Silicon currently. If you use an Apple Silicon based machine it's possible to run AppSignal (and the parent app) through Rosetta 2.
+- `8`: We provide experimental support for Apple Silicon. Some issues may appear and we'd appreciate it if you would [report them][support]. It's also possible to run AppSignal (and the parent app) through Rosetta 2.
+- `9`: Our Linux ARM is in the testing phase. Read more about it in the [Linux ARM build override section](#linux-arm-build-override).
 
 ## Linux
 
@@ -88,6 +90,27 @@ mix deps.get
 mix compile
 ```
 
+### Linux ARM build override
+
+To opt-in to the experimental Linux ARM build, add the `APPSIGNAL_BUILD_FOR_LINUX_ARM` environment variable to your system environment before installing AppSignal and compiling your application. This build is opt-in because it requires more testing, and we don't want to automatically install it on ARM systems in case something doesn't work as expected.
+
+-> This build is available for the Ruby gem, Elixir package and Node.js package. [Let us know][support] if you have any feedback on this build after testing it. Please report any issues you run into, but also if it works without any issues.  
+->
+-> Available in these packages:
+-> <ul>
+-> <li>Ruby gem 3.0.8 or newer.</li>
+-> <li>Elixir package 2.1.8 or newer.</li>
+-> <li>Node.js package 1.2.6 or newer.</li>
+-> </ul>
+
+```sh
+# Set this environment variable
+# Note: How environment variables are set may be different for your Operating
+# System.
+export APPSIGNAL_BUILD_FOR_LINUX_ARM=1
+# Run the install command, such as: bundle install, npm install, mix compile
+```
+
 ### Alpine Linux
 
 [Alpine Linux] support was added in version `2.1.0` of the AppSignal for Ruby gem. (JRuby is not supported on Alpine Linux.) Our AppSignal for Elixir package supports Alpine Linux since version `0.11.0`.
@@ -131,7 +154,7 @@ For the Ruby gem add this to your `Gemfile`:
 gem "appsignal", ">= 2.1.0" # or a newer version
 ```
 
-For the latest available version see the full list on [RubyGems.org](https://rubygems.org/gems/appsignal/versions) and if you run into any problems please [let us know](mailto:support@appsignal.com).
+For the latest available version see the full list on [RubyGems.org](https://rubygems.org/gems/appsignal/versions) and if you run into any problems please [let us know][support].
 
 ####^alpine-linux Elixir
 
@@ -141,7 +164,7 @@ If you're using Elixir, add this to your `mix.exs` file:
 {:appsignal, ">= 1.0.0"} # or a newer version
 ```
 
-For the latest available version see the full list on [Hex.pm](https://hex.pm/packages/appsignal) and if you run into any problems please [let us know](mailto:support@appsignal.com).
+For the latest available version see the full list on [Hex.pm](https://hex.pm/packages/appsignal) and if you run into any problems please [let us know][support].
 
 ### CentOS
 
@@ -207,13 +230,18 @@ Please make sure Xcode is installed with the command line build tools.
 xcode-select --install
 ```
 
--> **Note**: We do not provide support for Apple Silicon currently. If you use an Apple Silicon based machine it's possible to run AppSignal (and the parent app) through Rosetta 2.
+-> **Note**: We provide experimental support for Apple Silicon. Some issues may appear and we'd appreciate it if you would [report them][support]. It's also possible to run AppSignal (and the parent app) through Rosetta 2. Support is available in these package versions:
+-> <ul>
+-> <li>Ruby gem 3.0.11 or newer.</li>
+-> <li>Elixir package 2.1.11 or newer.</li>
+-> <li>Node.js package 1.3.1 or newer.</li>
+-> </ul>
 
 ## Microsoft Windows
 
 We currently have no plans to support the [Microsoft Windows](https://www.microsoft.com/en-us/windows/) Operating System. We do try to make the AppSignal libraries installable on Microsoft Windows without any errors or build issues so that the app it's installed in continues to operate.
 
-If you use Microsoft Windows and would like us to support it, [send us an e-mail](mailto:support@appsignal.com).
+If you use Microsoft Windows and would like us to support it, [send us an e-mail][support].
 
 ### Ruby
 
@@ -249,3 +277,4 @@ Use AppSignal in our app on the WSL system to test AppSignal's integration in yo
 [musl]: https://www.musl-libc.org/
 [Rust]: https://www.rust-lang.org/en-US/
 [host-metrics]: /metrics/host.html
+[support]: mailto:support@appsignal.com

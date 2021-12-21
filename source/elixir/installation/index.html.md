@@ -4,15 +4,15 @@ title: "Installing AppSignal for Elixir"
 
 Please follow the [installation guide](/guides/new-application.html) first, when adding a new application to AppSignal.
 
+## Requirements
+
+Before you can compile the AppSignal package, make sure the build/compilation tools are installed for your system. Please check the [Supported Operating Systems](/support/operating-systems.html) page for any system dependencies that may be required.
+
 ## Installation
 
 Installing the AppSignal package in your Elixir application requires a couple of manual steps. Currently, AppSignal support Phoenix, Plug and pure Elixir apps.
 
 If AppSignal does not support your use-case or if you find a problem with the documentation, don't hesitate to [contact us][support]. You can also create a pull-request on our public [Elixir repository][elixir-repo] or [documentation repository][docs-repo].
-
-### Requirements
-
-Before you can compile the AppSignal package, make sure the build/compilation tools are installed for your system. Please check the [Supported Operating Systems](/support/operating-systems.html) page for any system dependencies that may be required.
 
 ### Installing the package
 
@@ -20,7 +20,7 @@ Before you can compile the AppSignal package, make sure the build/compilation to
 
 1. Start by adding `appsignal` to your list of dependencies in `mix.exs`.
    AppSignal requires you to depend on a JSON encoder. You can pick between
-   `jason` and `poison`, our recommendation is to use `jason`.
+   `jason` and `poison`, our recommendation is to use `jason`. See point 4 if you are using [Phoenix framework][phoenix]
 
     ```elixir
     # mix.exs
@@ -34,7 +34,7 @@ Before you can compile the AppSignal package, make sure the build/compilation to
 
 2. Then run `mix deps.get`.
 3. Then run `mix appsignal.install YOUR_PUSH_API_KEY` or follow the [manual configuration guide](#configuration).
-4. If you use the [Phoenix framework][phoenix], continue with the [integrating AppSignal into Phoenix](/elixir/integrations/phoenix.html) guide.
+4. If you use the [Phoenix framework][phoenix] or [Plug][plug], continue with the [integrating AppSignal into Phoenix](/elixir/integrations/phoenix.html) or [integrating AppSignal into Plug](/elixir/integrations/plug.html) guides.
 
 After the installation is complete, start your application. When the AppSignal
 OTP application starts, it looks for a valid configuration (e.g. an AppSignal
@@ -107,6 +107,10 @@ Read more about how you can integrate more instrumentation in your Phoenix
 application in our [integrating Phoenix
 guide](/elixir/integrations/phoenix.html).
 
+### Optional: Add Plug instrumentation
+
+Read more about how you can integrate more instrumentation in your Plug application in our [integrating Plug guide](/elixir/integrations/plug.html).
+
 ### Optional: Add custom instrumentation
 
 Add custom instrumentation to your application to get a more in-depth view of
@@ -141,3 +145,4 @@ Uninstall AppSignal from your app by following the steps below. When these steps
 [elixir-repo]: https://github.com/appsignal/appsignal-elixir
 [docs-repo]: https://github.com/appsignal/appsignal-docs
 [phoenix]: http://www.phoenixframework.org/
+[plug]: https://github.com/elixir-plug/plug

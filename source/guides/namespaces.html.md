@@ -12,12 +12,15 @@ Apps can have more than three of these namespaces, like an Administration panel,
   <img src="/assets/images/screenshots/app_graphs_namespaces.png">
   <figcaption>Example graphs with multiple namespaces, splitting out a GraphQL API and the "web" namespace. On the left a drop down with the namespace filter.</figcaption>
 </figure>
+<br />
 
 ## Configuring namespaces
 
 Namespaces are set up from within the app code. With small helpers the namespace of an action can be customized. In this guide we will split up requests in an "admin" namespace and "critical" namespace for background jobs. Check the guide for the language your app uses below.
 
--> 💡 Only letters and underscores are accepted for namespace names.
+-> 💡 Only letters and underscores are accepted for namespace names
+
+-> 💡 We recommend not using more than **15** namespaces per app.
 
 ### Ruby
 

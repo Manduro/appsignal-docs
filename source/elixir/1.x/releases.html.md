@@ -16,9 +16,9 @@ Request some pages in your app, and sign into AppSignal to see if any performanc
 
 -> **Note**: Running AppSignal in your development environment will create a “dev” environment on your account overview in AppSignal, where the data will appear.
 
-If you don’t receive any data, double-check the steps in the [installation guide](https://docs.appsignal.com/elixir/1.x/installation.html) and the [Phoenix](https://docs.appsignal.com/elixir/1.x/integrations/phoenix.html) guide to make sure everything in your app is set up properly.
+If you don’t receive any data, double-check the steps in the [installation guide](/elixir/1.x/installation.html) and the [Phoenix](/elixir/1.x/integrations/phoenix.html) guide to make sure everything in your app is set up properly.
 
-If the install guide doesn’t show any missed steps, run the [diagnose command](https://docs.appsignal.com/elixir/1.x/command-line/diagnose.html#usage) (still on your local machine):
+If the install guide doesn’t show any missed steps, run the [diagnose command](/elixir/1.x/command-line/diagnose.html#usage) (still on your local machine):
 
     $ mix appsignal.diagnose --send-report
 

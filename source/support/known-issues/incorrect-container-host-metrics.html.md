@@ -24,7 +24,7 @@ Please upgrade to the latest AppSignal for Ruby gem or Elixir package to receive
 
 - Memory host metrics were fixed in Ruby gem `2.8.0` and Elixir package `1.9.0`.
 - CPU host metrics were fixed in Ruby gem `2.9.11` and Elixir package `1.10.11`.
-- Heroku is supported through our [Logplex log drain for Heroku](/metrics/host-metrics/heroku.html).
+- Heroku is supported through our [Logplex log drain for Heroku](/heroku/host-metrics.html).
 
 **Warning**: For container host metrics to be accurate, limits need to be set for every container. This means, configuring your container to have a limited number of CPUs and memory allocated to it. Without these limits the container reports the maximum possible value of these metrics, resulting in the host reporting Terabytes of available memory for example. A container without swap configured, or unsupported on the host system, will report a `0` value. For more information on how to limit your container's CPU and memory, please see the documentation on:
 

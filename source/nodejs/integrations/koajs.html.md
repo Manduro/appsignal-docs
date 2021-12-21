@@ -30,7 +30,7 @@ const { Appsignal } = require("@appsignal/nodejs");
 const appsignal = new Appsignal({
   active: true,
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>"
+  pushApiKey: "<YOUR API KEY>" // Note: renamed from `apiKey` in version 2.2.5
 });
 
 appsignal.instrument(require("@appsignal/koa"));
@@ -45,9 +45,7 @@ const Router = require("@koa/router"); // @koa/router is also supported out of t
 app.on("error", (error) => {
   appsignal
     .tracer()
-    .currentSpan()
-    .addError(error)
-    .close()
+    .setError(error)
 });
 
 const app = new Koa();

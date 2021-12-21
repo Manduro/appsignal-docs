@@ -154,14 +154,8 @@ Three different capitalized versions of the AppSignal name?
 Yes.. Let's explain!
 
 - `AppSignal` - The name of the company, the application and almost everything else related to AppSignal. You're probably right using this capitalized version.
-- `Appsignal` - The library name in the [Ruby](/ruby) gem and [Elixir](/elixir) package. Only used in the Ruby and Elixir code context.
-- `appsignal` - The AppSignal [Ruby gem](https://rubygems.org/gems/appsignal) and [Elixir package](https://hex.pm/packages/appsignal) name.
-
-The Node.js integration uses them sightly differently:
-
-- `AppSignal` - The name of the company, the application and almost everything else related to AppSignal. You're probably right using this capitalized version.
-- `Appsignal` - The name of the main class exported by `@appsignal/nodejs`.
-- `appsignal` - The instance of the `Appsignal` class.
+- `Appsignal` - The library name in the AppSignal integrations (for the [Ruby integration](/ruby), [Elixir integration](/elixir), [Node.js integration](/nodejs), [Front-end integration](/front-end) etc.). Only used in the code context.
+- `appsignal` - The AppSignal integration package names as published to package manager registries for the [Ruby gem](https://rubygems.org/gems/appsignal), [Elixir package and packages prefix](https://hex.pm/packages/appsignal) name, [Node.js packages prefix](https://www.npmjs.com/package/@appsignal/nodejs) and [Front-end packages prefix](https://www.npmjs.com/package/@appsignal/javascript), etc.
 
 ## Blog
 

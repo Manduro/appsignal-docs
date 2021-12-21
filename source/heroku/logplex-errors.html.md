@@ -9,7 +9,7 @@ AppSignal will automatically extract Heroku errors from the Logplex data when a 
 
 These errors behave like application errors and will produce incidents and samples. These errors will show up under a dedicated "heroku" namespace on AppSignal.
 
-![Screenshot of AppSignal incident list with a Heroku error](/assets/images/screenshots/heroku-errors-screenshot.png)
+![Screenshot of AppSignal incident list with a Heroku error](/assets/images/screenshots/heroku/heroku-errors-screenshot.png)
 
 
 Because the errors are generated from Log lines, the information available is limited, we only get the Error name/code, metadata such as request_id, path, method (GET/POST) etc, which will be available in the "Overview" section of the sample. These values are also available to filter samples by.

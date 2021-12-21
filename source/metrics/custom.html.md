@@ -29,7 +29,7 @@ A gauge is a metric value at a specific time. If you set more than one gauge wit
 Gauges are used for things like tracking sizes of databases, disks, or other absolute values like CPU usage, several items (users, accounts, etc.). Currently, all AppSignal [host metrics](host.html) are stored as gauges.
 
 ```ruby
-# Ruby
+# Ruby and Elixir
 #
 # The first argument is a string, the second argument a number
 # Appsignal.set_gauge(metric_name, value)
@@ -63,7 +63,7 @@ By tracking a measurement, the average and count will be persisted for the metri
 - 95th percentile: the 95th percentile of the metric value for the point in time.
 
 ```ruby
-# Ruby
+# Ruby and Elixir
 #
 # The first argument is a string, the second argument a number
 # Appsignal.add_distribution_value(metric_name, value)
@@ -96,7 +96,7 @@ Counters are good to use to track events. With a [gauge](#gauge) you can track h
 When the helper is called multiple times, the total/sum of all calls is persisted.
 
 ```ruby
-# Ruby
+# Ruby and Elixir
 #
 # The first argument is a string, the second argument a number
 # Appsignal.increment_counter(metric_name, value)
@@ -186,7 +186,7 @@ The available options are:
 When sending a metric with the following value:
 
 ```ruby
-# Ruby
+# Ruby and Elixir
 Appsignal.set_gauge("database_size", 1024)
 ```
 

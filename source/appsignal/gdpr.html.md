@@ -40,21 +40,21 @@ The Data Processing Agreement is accessible to all owners for an organization on
 
 #### Allowed request headers only
 
-We have always made sure to strip any personal data from incoming events such as database queries, but we did store request headers such as `REMOTE_ADDR`. Depending on architecture, this can expose useful information about load balancers or internal IP addresses. In most cases though, this sent visitor IP addresses to AppSignal. Since IP addresses are personal data, we have created a default allowlist of headers that we believe will not contain personal data. Customers can add additional headers to the allowlist ([Ruby](https://docs.appsignal.com/ruby/configuration/options.html#option-request_headers) / [Elixir](https://docs.appsignal.com/elixir/configuration/options.html#option-request_headers)) as needed, as long a they don't identify an individual (eg. if `REMOTE_ADDR` contains the IP address of a load balancer, that's fine).
+We have always made sure to strip any personal data from incoming events such as database queries, but we did store request headers such as `REMOTE_ADDR`. Depending on architecture, this can expose useful information about load balancers or internal IP addresses. In most cases though, this sent visitor IP addresses to AppSignal. Since IP addresses are personal data, we have created a default allowlist of headers that we believe will not contain personal data. Customers can add additional headers to the allowlist ([Ruby](/ruby/configuration/options.html#option-request_headers) / [Elixir](/elixir/configuration/options.html#option-request_headers)) as needed, as long a they don't identify an individual (eg. if `REMOTE_ADDR` contains the IP address of a load balancer, that's fine).
 
 Any non-allowlisted headers are stripped before being sent to AppSignal.
 
 #### Filtering options for parameters and session data
 
-We've had filtering options for _parameters_ for a long time already, but in our documentation ([Ruby](https://docs.appsignal.com/ruby/configuration/parameter-filtering.html) / [Elixir](https://docs.appsignal.com/elixir/configuration/parameter-filtering.html)) we now stress the importance with regard to GDPR.
+We've had filtering options for _parameters_ for a long time already, but in our [parameter filtering documentation](/application/parameter-filtering.html) we now stress the importance with regard to GDPR.
 
-Recent Ruby gem and Elixir package releases expand this filtering feature to session data too ([Ruby](https://docs.appsignal.com/ruby/configuration/session-data-filtering.html) / [Elixir](https://docs.appsignal.com/elixir/configuration/session-data-filtering.html)). It allows customers to send parameters to AppSignal without exposing personal data, by replacing that data with `[FILTERED]`. Alternatively, a customer can choose to not send any parameters ([Ruby](https://docs.appsignal.com/ruby/configuration/options.html#option-send_params)) or session data ([Ruby](https://docs.appsignal.com/ruby/configuration/options.html#option-skip_session_data) / [Elixir](https://docs.appsignal.com/elixir/configuration/options.html#option-skip_session_data)) at all.
+Recent Ruby gem and Elixir package releases expand this filtering feature to [session data](/application/session-data-filtering.html) too. It allows customers to send parameters to AppSignal without exposing personal data, by replacing that data with `[FILTERED]`. Alternatively, a customer can choose to not send any parameters ([Ruby](/ruby/configuration/options.html#option-send_params)) or session data ([Ruby](/ruby/configuration/options.html#option-skip_session_data) / [Elixir](/elixir/configuration/options.html#option-skip_session_data)) at all.
 
 Data is filtered before being sent to AppSignal.
 
 #### Requirements for Tagging
 
-We have changed the documentation for our [Tagging feature](/guides/custom-data/) to strongly state that no personal data should be sent to AppSignal in tags, and that user IDs, hashes or pseudonymized identifiers should be used instead.
+We have changed the documentation for our [Tagging feature](/application/tagging.html) to strongly state that no personal data should be sent to AppSignal in tags, and that user IDs, hashes or pseudonymized identifiers should be used instead.
 
 #### Data removal procedure
 

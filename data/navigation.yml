@@ -645,9 +645,16 @@ sections:
     name: "Features"
     sub_sections:
       -
-        name: "Uptime monitoring <sup>Beta</sup>"
+        name: "Uptime monitoring"
         icon: "fa fa-traffic-light"
         link: "/uptime-monitoring/"
+        pages:
+          -
+            name: "Setup"
+            link: "/uptime-monitoring/setup.html"
+          -
+            name: "Public status page"
+            link: "/uptime-monitoring/public-status-page.html"
       -
         name: "Anomaly detection"
         icon: "fas fa-bell"
@@ -669,7 +676,7 @@ sections:
                 link: "/metrics/host-metrics/"
               -
                 name: "Heroku host metrics"
-                link: "/metrics/host-metrics/heroku.html"
+                link: "/heroku/host-metrics.html"
               -
                 name: "Container host metrics"
                 link: "/metrics/host-metrics/containers.html"
@@ -780,6 +787,9 @@ sections:
           -
             name: "Supported Operating Systems"
             link: "/support/operating-systems.html"
+          -
+            name: "Maintenance policy"
+            link: "/support/maintenance-policy.html"
           -
             name: "Limiting requests"
             link: "/support/limiting-requests.html"

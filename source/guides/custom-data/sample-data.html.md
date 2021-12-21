@@ -16,7 +16,7 @@ This "custom_data" sample data key accepts nested objects. This will result in t
 
 ## Ruby
 
-### `custom_data`
+###^ruby `custom_data`
 
 Set custom data on the sample to add additional debugging data about the sample error or performance issue.
 
@@ -32,7 +32,24 @@ Appsignal::Transaction.current.set_sample_data(
 
 ## Elixir
 
-### `custom_data`
+###^elixir `params`
+
+Store custom parameters with the `params` key on the sample data. This is usually set by integrations provided by AppSignal for libraries such as Plug and Phoenix. By modifying the `params` on the sample data the data set by the AppSignal library integrations will be overwritten.
+
+```elixir
+Appsignal.Span.set_sample_data(
+  Appsignal.Tracer.root_span,
+  "params",
+  %{
+    i18n: %{
+      locale: "en_GB",
+      default_locale: "en_US"
+    }
+  }
+)
+```
+
+###^elixir `custom_data`
 
 Set custom data on the sample to add additional debugging data about the sample error or performance issue.
 
@@ -60,7 +77,7 @@ span.setSampleData("key", { string: "value", number: 123 }); // sets additional 
 
 The first argument to `setSampleData` takes a `key`, that can be one of the following:
 
-### `session_data`
+###^nodejs `session_data`
 
 Filled with session data by default, but can be overridden with the following call:
 
@@ -74,7 +91,7 @@ This key accepts nested objects that will be rendered as JSON on a Incident Samp
 
 ![session_data](/assets/images/screenshots/sample_data/session_data.png)
 
-### `params`
+###^nodejs `params`
 
 Filled with framework (such as Express) parameters by default, but can be overridden or filled with the following call:
 
@@ -86,7 +103,7 @@ This key accepts nested objects and will show up as follows on a Incident Sample
 
 ![params](/assets/images/screenshots/sample_data/params.png)
 
-### `environment`
+###^nodejs `environment`
 
 Environment variables from a request/background job (typically filled by the default `http` integration, but can be further augmented by other integrations), but can be filled/overridden with the following call:
 
@@ -99,7 +116,7 @@ This will result the following block on a Incident Sample page for both Exceptio
 
 ![environment](/assets/images/screenshots/sample_data/environment.png)
 
-### `custom_data`
+###^nodejs `custom_data`
 
 Set custom data on the sample to add additional debugging data about the sample error or performance issue.
 

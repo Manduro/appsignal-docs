@@ -156,7 +156,10 @@ options:
       type: string
       default_value: null
     nodejs:
-      config_key: apiKey
+      since: 2.2.5
+      since_notes:
+        - This config option was renamed from `apiKey` in version 2.2.5.
+      config_key: pushApiKey
       type: string
       default_value: null
     description: |
@@ -165,6 +168,18 @@ options:
       Read more about the [AppSignal Push API key](/appsignal/terminology.html#push-api-key).
 
       -> **Note**: When the [`APPSIGNAL_PUSH_API_KEY`](#option-push_api_key) system environment variable is set, the [`active`](#option-active) option will default to `true` instead of `false`. This means AppSignal will be consider active for the loaded environment even if `active` is set to `false` in the config file. For more information see the [`active`](#option-active) option.
+  - config_key: api_key
+    env_key: APPSIGNAL_PUSH_API_KEY
+    required: true
+    nodejs:
+      since: 1.0.0
+      since_notes:
+        - Deprecated since version 2.2.5 in favor of the [`pushApiKey` config option](#option-pushapikey).
+      config_key: apiKey
+      type: string
+      default_value: null
+    description: |
+      Deprecated config option. Use the [`pushApiKey` config option](#option-pushapikey) instead.
   - config_key: ca_file_path
     env_key: APPSIGNAL_CA_FILE_PATH
     ruby:
@@ -193,30 +208,80 @@ options:
     env_key: APPSIGNAL_DEBUG
     ruby:
       since: 1.0.0
+      since_notes:
+        - Deprecated since version 3.0.16 in favor of the [`log_level` config option](#option-log_level).
       type: bool
       default_value: false
+      description:
+        - "!> **Warning**: This config option is deprecated in Ruby gem 3.0.16. Please use the [`log_level`](#option-log_level) option instead for Ruby gem 3.0.16 and newer."
+        - Enable debug logging, this is usually only needed on request from support. With this option enabled AppSignal will log a lot more information about decisions that are made during metrics collection and when data is sent to AppSignal.com servers.
+        - Enabling debug logging could have a slight impact on the disk usage and IO, especially on high-traffic sites. CPU overhead is minimal with the debug option enabled.
     elixir:
+      since: 1.0.0
+      since_notes:
+        - Deprecated since version 2.2.8 in favor of the [`log_level` config option](#option-log_level).
       type: bool
       default_value: false
+      description:
+        - "!> **Warning**: This config option is deprecated in Elixir package 2.2.8. Please use the [`log_level`](#option-log_level) option instead for Elixir package 2.2.8 and newer."
+        - Enable debug logging, this is usually only needed on request from support. With this option enabled AppSignal will log a lot more information about decisions that are made during metrics collection and when data is sent to AppSignal.com servers.
+        - Enabling debug logging could have a slight impact on the disk usage and IO, especially on high-traffic sites. CPU overhead is minimal with the debug option enabled.
     nodejs:
+      since: 1.0.0
+      since_notes:
+        - Deprecated since version 2.2.6 in favor of the [`log_level` config option](#option-loglevel).
       type: bool
       default_value: false
-    description: |
-      Enable debug logging, this is usually only needed on request from support. With this option enabled AppSignal will log a lot more information about decisions that are made during metrics collection and when data is sent to AppSignal.com servers.
-
-      Enabling debug logging could have a slight impact on the disk usage and IO, especially on high-traffic sites. CPU overhead is minimal with the debug option enabled.
+      description:
+        - "!> **Warning**: This config option is deprecated in Node.js package 2.2.6. Please use the [`logLevel`](#option-loglevel) option instead for Node.js package 2.2.6 and newer."
+        - Enable debug logging, this is usually only needed on request from support. With this option enabled AppSignal will log a lot more information about decisions that are made during metrics collection and when data is sent to AppSignal.com servers.
+        - Enabling debug logging could have a slight impact on the disk usage and IO, especially on high-traffic sites. CPU overhead is minimal with the debug option enabled.
   - config_key: transaction_debug_mode
     env_key: APPSIGNAL_TRANSACTION_DEBUG_MODE
     ruby:
       since: 2.9.18
+      since_notes:
+        - Deprecated since version 3.0.16 in favor of the [`log_level` config option](#option-log_level).
       type: bool
       default_value: false
+      description:
+        - "!> **Warning**: This config option is deprecated in Ruby gem 3.0.16. Please use the [`log_level`](#option-log_level) option instead for Ruby gem 3.0.16 and newer."
+        - Enable transaction debug mode. This enables very detailed logging of transactions and events which is useful when developing integrations or when events aren not tracked as expected. The log is only written if the general `debug` option is on as well.
     elixir:
       since: 1.11.4
+      since_notes:
+        - Deprecated since version 2.2.9 in favor of the [`log_level` config option](#option-log_level).
       type: bool
       default_value: false
+      description:
+        - "!> **Warning**: This config option is deprecated in Elixir package 2.2.9. Please use the [`log_level`](#option-log_level) option instead for Elixir package 2.2.9 and newer."
+        - Enable transaction debug mode. This enables very detailed logging of transactions and events which is useful when developing integrations or when events aren not tracked as expected. The log is only written if the general `debug` option is on as well.
+  - config_key: log_level
+    env_key: APPSIGNAL_LOG_LEVEL
+    ruby:
+      since: 3.0.16
+      type: string
+      default_value: "info"
+    elixir:
+      since: 2.2.8
+      type: string
+      default_value: "info"
+    nodejs:
+      since: 2.2.6
+      type: string
+      default_value: "info"
+      config_key: "logLevel"
     description: |
-      Enable transaction debug mode. This enables very detailed logging of transactions and events which is useful when developing integrations or when events aren not tracked as expected. The log is only written if the general `debug` option is on as well.
+      Set the severity level of the AppSignal logger. If it is configured to "info" it will log all error, warning and info messages, but not log the debug messages.
+
+      Setting it to "debug" is usually only needed on request from support. Also, setting the level to "debug" could have a slight impact on the disk usage and IO, especially on high-traffic sites. CPU overhead is minimal with the debug option enabled.
+
+      Accepted values:
+
+        - error
+        - warning
+        - info
+        - debug
   - config_key: dns_servers
     env_key: APPSIGNAL_DNS_SERVERS
     ruby:
@@ -314,7 +379,7 @@ options:
 
         ```sh
         # In the host environment
-        export APPSIGNAL_DNS_SERVERS="AppsignalPhoenixExample.Repo,AppsignalPhoenixExample.AnotherRepo"
+        export APPSIGNAL_ECTO_REPOS="AppsignalPhoenixExample.Repo,AppsignalPhoenixExample.AnotherRepo"
         ```
 
         To turn off all Ecto instrumentation, configure `:ecto_repos` as an empty list:
@@ -373,6 +438,34 @@ options:
       default_value: true
       description: |
         Enables the [minutely probes](/elixir/instrumentation/minutely-probes.html) system.
+    nodejs:
+      config_key: enableMinutelyProbes
+      since: 0.4.0
+      type: bool
+      default_value: true
+      description: |
+        Enables the [minutely probes](/nodejs/metrics/minutely-probes.html) system.
+  - config_key: enable_statsd
+    env_key: APPSIGNAL_ENABLE_STATSD
+    ruby:
+      since: 3.0.14
+      type: bool
+      default_value: true
+      description: |
+        Enables the [StatsD server](/standalone-agent/statsd.html) in the AppSignal agent.
+    elixir:
+      since: 2.2.6
+      type: bool
+      default_value: false
+      description: |
+        Enables the [StatsD server](/standalone-agent/statsd.html) in the AppSignal agent.
+    nodejs:
+      config_key: enableStatsd
+      since: 2.2.2
+      type: bool
+      default_value: false
+      description: |
+        Enables the [StatsD server](/standalone-agent/statsd.html) in the AppSignal agent.
   - config_key: endpoint
     env_key: APPSIGNAL_PUSH_API_ENDPOINT
     ruby:
@@ -424,9 +517,9 @@ options:
     nodejs:
       config_key: logPath
       type: string
-      default_value: "/tmp/appsignal.log"
+      default_value: "/tmp"
     description:
-      - Override the location of the path where the `appsignal.log` file can be written to.
+      - Override the location of the path (directory) where the `appsignal.log` file can be written to.
       - *file_paths_notice
   - config_key: files_world_accessible
     env_key: APPSIGNAL_FILES_WORLD_ACCESSIBLE
@@ -436,6 +529,11 @@ options:
       default_value: true
     elixir:
       since: 1.3.4
+      type: bool
+      default_value: true
+    nodejs:
+      config_key: filesWorldAccessible
+      since: 2.2.4
       type: bool
       default_value: true
     description: |
@@ -463,7 +561,7 @@ options:
             - token
         ```
 
-        Read more about [parameter filtering](/ruby/configuration/parameter-filtering.html).
+        Read more about [parameter filtering](/application/parameter-filtering.html).
     elixir:
       type:
         list:
@@ -478,8 +576,9 @@ options:
           filter_parameters: ["password", "secret"]
         ```
 
-        Read more about [parameter filtering](/elixir/configuration/parameter-filtering.html).
+        Read more about [parameter filtering](/application/parameter-filtering.html).
     nodejs:
+      since: 2.2.5
       config_key: filterParameters
       type:
         list:
@@ -487,6 +586,8 @@ options:
       default_value: []
       description: |
         List of parameter keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal.
+
+        Read more about [parameter filtering](/application/parameter-filtering.html).
   - config_key: filter_session_data
     env_key: APPSIGNAL_FILTER_SESSION_DATA
     ruby:
@@ -510,7 +611,7 @@ options:
             - token
         ```
 
-        Read more about [session data filtering](/ruby/configuration/session-data-filtering.html).
+        Read more about [session data filtering](/application/session-data-filtering.html).
     elixir:
       since: 1.6.0
       since_notes:
@@ -528,15 +629,18 @@ options:
           filter_session_data: ["name", "email", "api_token", "token"]
         ```
 
-        Read more about [session data filtering](/elixir/configuration/session-data-filtering.html).
+        Read more about [session data filtering](/application/session-data-filtering.html).
     nodejs:
       config_key: filterSessionData
+      since: 2.2.5
       type:
         list:
           - string
       default_value: []
       description: |
         List of session data keys that should be ignored using AppSignal filtering. Their values will be replaced with `[FILTERED]` when transmitted to AppSignal.
+
+        Read more about [session data filtering](/application/session-data-filtering.html).
   - config_key: hostname
     env_key: APPSIGNAL_HOSTNAME
     ruby:
@@ -607,7 +711,7 @@ options:
           - string
       default_value: []
     nodejs:
-      config_key: ignoreNamespaces
+      config_key: ignoreErrors
       type:
         list:
           - string
@@ -624,6 +728,12 @@ options:
       default_value: []
     elixir:
       since: 1.3.0
+      type:
+        list:
+          - string
+      default_value: []
+    nodejs:
+      config_key: ignoreNamespaces
       type:
         list:
           - string
@@ -762,6 +872,53 @@ options:
         config :appsignal, :config,
           request_headers: []
         ```
+    nodejs:
+      config_key: requestHeaders
+      since: 2.2.5
+      type:
+        list:
+          - string
+      default_value:
+        - accept
+        - accept-charset
+        - accept-encoding
+        - accept-language
+        - cache-control
+        - connection
+        - content-length
+        - range
+      description: |
+        The `requestHeaders` config option contains a list of HTTP request headers which are read and stored by the AppSignal Node.js package.
+
+        This `requestHeaders` config option is an *allowlist*, which means that it will only take headers as specified by this config option. If this config option is unset it will use the AppSignal default.
+
+        Following list is the AppSignal package default.
+
+        ```js
+        client = Appsignal.new(
+          // ...Other config opts
+          requestHeaders: [
+            "accept",
+            "accept-charset",
+            "accept-encoding",
+            "accept-language",
+            "cache-control",
+            "connection",
+            "content-length",
+            "range"
+          ]
+        )
+        ```
+
+        To configure AppSignal to not store any HTTP request headers on AppSignal transactions, configure the option with an empty list.
+
+        ```js
+        client = Appsignal.new(
+          // ...Other config opts
+          requestHeaders: []
+        )
+        ```
+
   - config_key: running_in_container
     env_key: APPSIGNAL_RUNNING_IN_CONTAINER
     ruby:
@@ -784,6 +941,15 @@ options:
     env_key: APPSIGNAL_SEND_ENVIRONMENT_METADATA
     ruby:
       since: 2.11.0
+      type: bool
+      default_value: true
+    elixir:
+      since: 2.2.8
+      type: bool
+      default_value: true
+    nodejs:
+      config_key: sendEnvironmentMetadata
+      since: 2.2.6
       type: bool
       default_value: true
     description: |
@@ -921,6 +1087,10 @@ options:
       since: 1.5.0
       since_notes:
         - "`1.10.12`: Auto detection for Heroku deploys with the Dyno Metadata labs feature enabled."
+      type: string
+      default_value: null
+    nodejs:
+      since: 1.0.0
       type: string
       default_value: null
     description: |

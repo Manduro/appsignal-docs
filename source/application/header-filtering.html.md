@@ -24,6 +24,7 @@ To filter all request headers without individual header filtering, configure the
 
 - [Ruby `request_headers` config option documentation](/ruby/configuration/options.html#option-request_headers)
 - [Elixir `request_headers` config option documentation](/elixir/configuration/options.html#option-request_headers)
+- [Node.js `requestHeaders` config option documentation](/nodejs/configuration/options.html#option-requestheaders)
 
 ## Recommended headers to filter
 

@@ -17,7 +17,7 @@ It is designed to closely follow the concept of a Span from the [OpenTelemetry](
 
 ## Creating a new `Span`
 
-A `RootSpan` can be created by calling `tracer.createSpan()`, which initializes a new `RootSpan` object.
+A `Span` can be created by calling `tracer.createSpan()`, which initializes a new `RootSpan` if there's no current `RootSpan` on the _scope_ or a `ChildSpan` of the present `RootSpan`.
 
 ```js
 const span = tracer.createSpan();

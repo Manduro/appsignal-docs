@@ -87,4 +87,4 @@ We have a Docker system on our host machine that has 3 virtual CPU cores availab
 - In the scenario of container A maxing out its available CPU cores, and the other containers B and C idling at 0%, it will be reported as 300% CPU usage for container A. Which is the total CPU time available on the host's container system.
 - When the three containers are all maxing out their available CPU cores it will be reported as 100% CPU usage for every container, as the resources are shared amongst them evenly.
 
-[heroku support]: /metrics/host-metrics/heroku.html
+[heroku support]: /heroku/host-metrics.html

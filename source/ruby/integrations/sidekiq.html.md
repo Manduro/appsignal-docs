@@ -41,7 +41,7 @@ Sidekiq.on(:startup) do
     :name   => 'Sidekiq standalone', # Set app name here
   )
 
-  # Start Appsignal
+  # Start AppSignal
   Appsignal.start
   # Initialize the logger
   Appsignal.start_logger

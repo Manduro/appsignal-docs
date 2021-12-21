@@ -22,7 +22,7 @@ We've have discussed a solution for this issue in [appsignal-ruby issue #603](ht
 
 Upgrade to the AppSignal for Ruby gem version `3.0.0` or newer.
 
-See our [upgrade guide to Ruby gem 3.0](https://docs.appsignal.com/ruby/installation/upgrade-from-2-to-3.html) for more information about this issue and upgrading the AppSignal Ruby gem.
+See our [upgrade guide to Ruby gem 3.0](/ruby/installation/upgrade-from-2-to-3.html) for more information about this issue and upgrading the AppSignal Ruby gem.
 
 ## Workaround
 

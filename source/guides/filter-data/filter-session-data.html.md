@@ -66,16 +66,18 @@ config :appsignal, :config,
 
 ## Node.js
 
-In the Node.js integration, AppSignal automatically stores the contents of the user's session for certain integrations. Specific values can be filtered out or it can be [disabled entirely].
+If a request stores session data on the sample, use the session data filter to filter out any data you do not want to include.
 
-To use this filtering, add the following to your AppSignal configuration file. The [`filterSessionData`](/nodejs/configuration/options.html#option-filterSessionData) value is an Array of Strings.
+In the session data filtering, there's support for nested hashes and nested hashes in arrays. Any hash we encounter in your session data will be filtered.
+
+To use this filtering, use the [`filterSessionData`](/nodejs/configuration/options.html#option-filtersessiondata) config option to select which session data keys to filter out.
 
 ```js
 // Example: appsignal.js
 const { Appsignal } = require("@appsignal/nodejs");
 
 const appsignal = new Appsignal({
-  // Other config
+  // Other config options
   filterSessionData: ["name", "email", "api_token", "token"]
 });
 ```

@@ -115,6 +115,7 @@ When configuring the standalone agent, pick an app name and environment that wor
 push_api_key = "<YOUR PUSH API KEY>"
 app_name = "<YOUR APP NAME>"
 environment = "<YOUR APP ENVIRONMENT>"
+hostname = "<YOUR HOST NAME>"
 ```
 
 For example:
@@ -124,6 +125,7 @@ For example:
 push_api_key = "0000-0000-0000-000"
 app_name = "My app name"
 environment = "production"
+hostname = "hostname"
 ```
 
 Once you edit the configuration file you need to restart the agent.

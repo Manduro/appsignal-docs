@@ -33,6 +33,14 @@ This probe will report the following [metrics](/metrics/custom.html) grouped by 
       - `binary`
       - `code`
       - `ets`
+- `erlang_atoms` - gauge
+  - Tag `type`:
+      - `limit`
+      - `count`
+- `erlang_scheduler_utilization` - gauge (since version `2.2.8`)
+  - Tag `type`:
+      - `normal`
+  - Tag `id`: the ID of the scheduler
 
 ###^minutely-probe Configuration
 

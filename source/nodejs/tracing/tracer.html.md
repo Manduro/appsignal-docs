@@ -14,19 +14,19 @@ const tracer = appsignal.tracer();
 
 If the agent is currently inactive (you must actively set it as such by setting `active: true`), then the AppSignal client will return an instance of `NoopTracer`, which is safe to call within your code as if the agent were currently active but does not record any data.
 
-## Retrieving the current `Span`
+## Retrieving the current `RootSpan`
 
-In most cases, a `Span` will be created by one of our automatic instrumentations, e.g. the `http` module integration. To add any custom instrumentation to your trace, you'll need to retrieve that `Span` using the `Tracer` instance.
+In most cases, a `RootSpan` will be created by one of our automatic instrumentations, e.g. the `http` module integration. To add any custom instrumentation to your trace, you'll need to retrieve that `RootSpan` using the `Tracer` instance.
 
 ```js
-const span = tracer.currentSpan();
+const rootSpan = tracer.rootSpan();
 ```
 
-Once you have the current `Span`, you'll be able to add data to it and create `ChildSpan`s from it. If a current `Span` is not available, then `tracer.currentSpan()` will return a `NoopSpan`.
+Once you have the current `RootSpan`, you'll be able to add data to it and create `ChildSpan`s from it. If a current `Span` is not available, then `tracer.rootSpan()` will return a `NoopSpan`.
 
 ## Creating a new `Span`
 
-A `Span` can be created by calling `tracer.createSpan()`, which initializes a new `Span` object.
+A `Span` can be created by calling `tracer.createSpan()`, which initializes a new `Span` object. If there's no current `RootSpan` in the given context, the `Span` created will be a `RootSpan`. If there's a `RootSpan` present in the context, then a `ChildSpan` of that `RootSpan` will be created.
 
 ```js
 const span = tracer.createSpan();

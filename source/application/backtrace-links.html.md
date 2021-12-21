@@ -4,7 +4,7 @@ title: "Backtrace links"
 
 With backtrace links you can spend less time figuring out where an exception happened and more time debugging the exception. Backtrace links make every line to source code in your app link to your app's source code on your source code hosting platform of choice.
 
-![Backtrace with Git link](/assets/images/screenshots/backtrace_links.png)
+![Backtrace with Git link](/assets/images/screenshots/backtrace_links/backtrace_links.png)
 
 ## Steps to enable backtrace links
 
@@ -19,7 +19,7 @@ To enable backtrace links an app on AppSignal.com needs to:
 
 Owners of an Organization can specify a Repo url on [the app settings page](https://appsignal.com/redirect-to/app?to=edit). This is especially useful for Git hosting platforms that are not GitHub (e.g. GitLab/BitBucket) or private repositories.
 
-![App settings repo URL form](/assets/images/screenshots/repo_url.png)
+![App settings repo URL form](/assets/images/screenshots/backtrace_links/repo_url.png)
 
 ## Link your app to GitHub
 
@@ -30,4 +30,4 @@ Once the steps are completed we'll automatically enrich the backtrace lines with
 ## Send error to GitHub
 When an error occurs, AppSignal will not create an issue automatically on GitHub, if you think it is an error that needs to be fixed then you can create this error as an issue in GitHub by clicking on the "Send to GitHub" button.
 
-![Send error to github](/assets/images/screenshots/send_error_to_github.png)
+![Send error to github](/assets/images/screenshots/backtrace_links/send_error_to_github.png)

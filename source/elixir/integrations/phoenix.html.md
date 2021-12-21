@@ -13,26 +13,24 @@ instrumentation](/elixir/instrumentation/index.html) documentation.
 More information can be found in the [AppSignal Hex package
 documentation][hex-appsignal].
 
-## Getting started
+## Installation
 
-Since version 2.0, the Phoenix integration is moved to a separate library named
-`:appsignal_phoenix`, which depends on the main `:appsignal` library. To use
-AppSignal in a Phoenix app, add `:appsignal_phoenix` to your dependencies. You
-can then remove the `:appsignal` dependency.
+-> Upgrading from AppSignal for Elixir 1.0? Please read [our upgrade guide](/elixir/installation/upgrading-from-1.x-to-2.x.html).
+
+The AppSignal instrumentation for Phoenix is part of a separate package, which depends on the primary `appsignal` package. Add the `appsignal_phoenix` package to your `mix.exs` file.
 
 ``` elixir
+# mix.exs
 defmodule AppsignalPhoenixExample.MixProject do
   # ...
 
   defp deps do
     [
       {:phoenix, "~> 1.5.3"},
+      {:appsignal_phoenix, "~> 2.0"}
       # ...
-      {:appsignal_phoenix, "~> 2.0.0"}
     ]
   end
-
-  # ...
 end
 ```
 

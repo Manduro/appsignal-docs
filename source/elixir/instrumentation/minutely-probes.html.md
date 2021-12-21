@@ -59,13 +59,45 @@ Now you can register this probe in the start function of your OTP app.
 Appsignal.Probes.register(:my_probe, &MyApp.MyProbe.call/0)
 ```
 
+### Stateful probes
+
+As of version `2.2.8` of the AppSignal Elixir package, probes can pass state between runs. If your probe takes an argument, the return value of the last run will be passed as the value for that argument in the following run.
+
+An initial state to be used for the probe's first run can be provided as the third argument to `Appsignal.Probes.register`. If it is not provided, the initial state will be `nil`.
+
+```elixir
+Appsignal.Probes.register(:stateful_probe, fn minutes ->
+  Appsignal.set_gauge("uptime_minutes", minutes)
+  minutes + 1
+end, 0)
+```
+
+Or, as a module based function:
+
+```elixir
+# lib/my_app/probes/my_probe.ex
+defmodule MyApp.MyProbe do
+  def call(minutes) do
+    Appsignal.set_gauge("uptime_minutes", minutes)
+    minutes + 1
+  end
+end
+```
+
+Which you can then register as:
+
+```elixir
+Appsignal.Probes.register(:stateful_probe, &MyApp.MyProbe.call/1, 0)
+```
+
 ## Registering probes
 
 Probes can be registered with the `register` method on the `Appsignal.Probes` module.
-This method accepts two arguments.
+This method accepts three arguments.
 
 - `key` - This is the key/name of the probe. This will be used to identify the probe in case an error occurs while executing the probe (which will be logged to the [appsignal.log file](/support/debugging.html#logs)) and to [override an existing probe](#overriding-default-probes).
 - `probe` - This is one of the [supported probe types](#creating-probes) that should be called every minute to collect metrics.
+- `state` - This is the initial state that will be passed to your probe. If your probe does not take state as an argument, then this argument has no effect. It is an optional argument, and its default value is `nil`.
 
 To add a probe, register it in your application's `start/2` function, just before the supervisor is started.
 

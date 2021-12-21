@@ -11,44 +11,6 @@ at the beginning of a process. It can be
 [configured](/elixir/configuration/index.html) through Mix configuration or by
 using environment variables.
 
-## Installation
-
-Make sure the AppSignal for Elixir package is installed in your application
-using Mix.
-
-Add it as a dependency to your application and add it to the :extra_applications 
-of your application.
-
-```elixir
-# mix.exs
-# Note: Module setup and other functions of the mix.exs file removed
-# The contents of the application and deps function may differ in your
-# application.
-
-# ...
-
-  def application do
-    [
-      mod: {MyAwesomeApp, []},
-      extra_applications: [:appsignal, ...]
-    ]
-  end
-
-# ...
-
-  defp deps do
-    [
-      # ...
-      {:appsignal, "~> 2.0"}
-    ]
-  end
-
-# ...
-
-```
-
-See our [installation guide](/elixir/installation.html) for the full guide.
-
 ## Configuration
 
 The AppSignal for Elixir package needs to be configured before it can send data

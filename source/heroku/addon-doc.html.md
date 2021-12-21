@@ -114,8 +114,7 @@ If you deploy your application AppSignal will now use the api-key contained in t
 
 ## Adding integration gems
 
-AppSignal supports various other databases like MongoDB and Redis. You can add an integration gem for this to your project.
-Read more [here](http://docs.appsignal.com/tweaks-in-your-code/integration-gems.html).
+AppSignal supports various other databases like MongoDB and Redis. Read more [about our integrations](/ruby/integrations/).
 
 ## Migrating between plans
 
@@ -141,6 +140,6 @@ This will destroy all associated data and cannot be undone!
 
 ## Support
 
-For more information about getting the most out of AppSignal read our [docs](http://docs.appsignal.com/).
+For more information about getting the most out of AppSignal read our [docs](/).
 
 Please [email us](mailto:support@appsignal.com) or visit our [campfire room](https://80beans.campfirenow.com/f08a4) if you have any issues or questions. We are happy to help!

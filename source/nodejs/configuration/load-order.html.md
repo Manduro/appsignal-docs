@@ -42,7 +42,7 @@ When initializing the `Appsignal` object, you can pass in the initial configurat
 const appsignal = new Appsignal({
   active: true,
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>",
+  pushApiKey: "<YOUR API KEY>", // Note: renamed from `apiKey` in version 2.2.5
 });
 ```
 

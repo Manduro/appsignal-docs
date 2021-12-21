@@ -49,6 +49,20 @@ end
 The exception will be tracked by AppSignal like any other error, and it allows
 you to provide custom error handling and fallbacks.
 
+If you do not have an error object when calling `send_error`, but still want to report the scenario as an error, it's also possible to initialize a custom error struct.
+
+```elixir
+defmodule MyCustomError do
+  defexception message: "default message" # Customize if you call it without a custom message
+end
+
+case Worker.do_something() do
+  :ok -> IO.puts "yay!"
+  {:error, message} ->
+    Appsignal.set_error(:error, %MyCustomError{ message: message }, [])
+end
+```
+
 **Note:** This function only works when there is an AppSignal transaction active.
 Otherwise the error will be ignored.
 
@@ -75,6 +89,22 @@ catch
     Appsignal.send_error(kind, reason, __STACKTRACE__)
 end
 ```
+
+If you do not have an error object when calling `send_error`, but still want to report the scenario as an error, it's also possible to initialize a custom error struct.
+
+```elixir
+defmodule MyCustomError do
+  defexception message: "default message" # Customize if you call it without a custom message
+end
+
+case Worker.do_something() do
+  :ok -> IO.puts "yay!"
+  {:error, message} ->
+    Appsignal.send_error(:error, %MyCustomError{ message: message }, [])
+end
+```
+
+### Additional metadata
 
 To add metadata to the sent error, pass a function as the fourth argument to
 `Appsignal.send_errror/4`:

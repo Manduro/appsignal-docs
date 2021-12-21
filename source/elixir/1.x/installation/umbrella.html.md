@@ -12,7 +12,9 @@ Add the AppSignal dependency to each application that will use it. This includes
 
 ```elixir
 defp deps do
-  {:appsignal, "~> 1.0"}
+  [
+    {:appsignal, "~> 1.0"}
+  ]
 end
 ```
 

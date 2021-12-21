@@ -8,8 +8,8 @@ AppSignal provides many ways to provide more insights into your application - by
 
 ![Trace diagram](/assets/images/abstract-trace.png)
 
-* [The Tracer object](index.html)
-* [Creat and using a Span](span.html)
+* [The Tracer object](tracer.html)
+* [Creating and using a Span](span.html)
 * [Exception handling](exception-handling.html)
 * [Async tracing and Scopes](scopes.html)
 

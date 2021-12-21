@@ -1,8 +1,6 @@
 ---
-title: "Uptime monitoring <sup>Beta</sup>"
+title: "Uptime monitoring"
 ---
-
--> Uptime monitoring is in public beta. It's being used for hundreds of uptime monitoring and should be stable. The beta label wil be removed after a few weeks without new issues found for this feature.
 
 With AppSignal uptime monitoring you can receive alerts when your application is down.
 We check the given URL of your application from multiple regions across the world and will open an alert when any of these regions can't reach the given URL. We also graph the performance of this endpoint from different regions around the world.
@@ -21,6 +19,8 @@ Use the description field to help out anyone who receives the alert, by providin
 
 Select a notifier to recieve notifications when the endpoint does not return a 200 state. Sometimes there can be small network hickups, we recommend to use a warmup of at least 1 minute to prevent alerts being sent when there's not actually an issue.
 
+### Headers
+If your endpoint requires authorization, you can use these fields. For example, suppose you are using a `Basic` authentication mechanism. In that case, you can send `Authorization` for header name and `Basic xxx` for header value where `xxx` should be `username:password` 64 base encoded.
 
 ## Regions
 
@@ -31,6 +31,11 @@ We will request the given URL from the following regions:
 * North-America (N. Virginia)
 * South-America (São Paulo)
 
+### How the request works
+
+We ping your applications from AWS Lambda workers that are executed from the regions listed above. There's a 30-second timeout to the connection. If your server does not respond within 30 seconds, we consider the application down from that location.
+
+However, if a single region has issues, that doesn't necessarily mean the application is down. It could mean that the connection between AWS Lambda in that region and your endpoint can not be set up in the allotted 30-second timeout. This could point to a networking issue between AWS Lambda and your endpoint.
 
 ## User-Agent
 

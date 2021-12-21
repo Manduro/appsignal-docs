@@ -24,7 +24,9 @@ existing dependency on `:appsignal`, and replace it with a dependency on
 
 ```elixir
 defp deps do
-  {:appsignal_phoenix, "~> 2.0.0-beta.1"}
+  [
+    {:appsignal_phoenix, "~> 2.0.0-beta.1"}
+  ]
 end
 ```
 
@@ -82,9 +84,7 @@ Instead of the custom `:template_engines` from 1.x, AppSignal for Elixir 2.x
 uses the new `Appsignal.View` module to gain insights into your template
 rendering.
 
-To upgrade, remove the `:template_engines` from `config/config.exs and add `use
-Appsignal.Phoenix.View` to the view/0 function in your app's web module, after
-`use Phoenix.View`:
+To upgrade, remove the `:template_engines` from `config/config.exs` and add `use Appsignal.Phoenix.View` to the view/0 function in your app's web module, after `use Phoenix.View`:
 
 ```elixir
 defmodule AppsignalPhoenixExampleWeb do
@@ -117,6 +117,6 @@ Lastly, query instrumentation is automatic in 2.x, so you can remove the
 
 ## Welcome to 2.x!
 
-This should cover upgrading most Phoenix applications to 2.x. If your app includes custom instrumentation, please check out the [custom instrumentation documentation](https://docs.appsignal.com/elixir/1.x/instrumentation/) for more information about custom instrumentation in 2.x.
+This should cover upgrading most Phoenix applications to 2.x. If your app includes custom instrumentation, please check out the [custom instrumentation documentation](/elixir/1.x/instrumentation/) for more information about custom instrumentation in 2.x.
 
 If you have any questions, or would like assistance upgrading to the new version, please don't hesitate to [contact support](mailto:support@appsignal.com).

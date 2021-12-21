@@ -49,6 +49,8 @@ config file or environment variable.
 
 ### appsignal_revision (since gem version 0.8.8)
 
+!> **Warning**: This config option is deprecated. Please use the [`revision` config option](/ruby/configuration/options.html#option-revision) instead. For more information, please read the [deploy markers topic](/application/markers/deploy-markers.html).
+
 In Capistrano 2 AppSignal is able to fetch the revision from the Capistrano
 config.
 

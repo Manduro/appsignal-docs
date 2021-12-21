@@ -6,6 +6,8 @@ Minutely probes are a mechanism to periodically send custom metrics to AppSignal
 
 No minutely probes are configured by `@appsignal/nodejs` by default.
 
+Minutely probes can be enabled/disabled with the [`enableMinutelyProbes`](/nodejs/configuration/options.html#option-enableminutelyprobes) config option.
+
 ## Creating probes
 
 If you need to track custom metrics from your app, you can add your own probe(s). Using a probe will be familiar to you if you have used an `EventEmitter` before; the `probes.register()` method takes two arguments: a probe name and an anonymous function to be called once every minute.

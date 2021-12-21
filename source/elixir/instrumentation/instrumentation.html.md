@@ -72,7 +72,7 @@ created using the `Appsignal.instrument/2` function:
 
 ```elixir
 defmodule AppsignalElixirExample do
-  def instrument do
+  def example_fn do
     Appsignal.instrument("instrument", fn ->
       :timer.sleep(500)
     end)
@@ -86,7 +86,7 @@ span. To use a different category name, use `instrument/3` instead:
 
 ```elixir
 defmodule AppsignalElixirExample do
-  def instrument do
+  def example_fn do
     Appsignal.instrument("instrument", "call.instrument", fn ->
       :timer.sleep(500)
     end)
@@ -94,15 +94,17 @@ defmodule AppsignalElixirExample do
 end
 ```
 
-When passing a function that takes an argument, the `instrument/2-3` function
-calls it with the opened span to allow further customization:
+When passing a function that takes an argument, the `instrument/2-3` function calls it with the opened span to allow further customization. See the docs on hex.pm for [all available Span functions](https://hexdocs.pm/appsignal/Appsignal.Span.html).
 
 ```elixir
 defmodule AppsignalElixirExample do
-  def instrument do
-    Appsignal.instrument("instrument", "call.instrument", fn span ->
-      Appsignal.Span.set_namespace(span, "custom_namespace")
-      :timer.sleep(500)
+  def example_fn do
+    Appsignal.instrument("prepare_query.sql", "Build complicated SQL query", fn span ->
+      # Example of building a complex SQL query in the instrument block and performing it
+      query = "SOME complicate SQL query"
+      # The body is only set here because it's the value being calculated and instrumented in this function
+      Appsignal.Span.set_sql(span, query)
+      Database.perform_query(query)
     end)
   end
 end

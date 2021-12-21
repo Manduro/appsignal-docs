@@ -28,14 +28,6 @@
     %link{:rel => "stylesheet", :href => "https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"}
     = partial "analytics"
 
-    :javascript
-      var ffWidgetId = '1add2f37-fe79-4943-baa3-3b62dd297a3a';
-      var ffWidgetScript  = document.createElement("script");
-      ffWidgetScript.type = "text/javascript";
-      ffWidgetScript.src = 'https://freddyfeedback.com/widget/freddyfeedback.js';
-      document.head.appendChild(ffWidgetScript);
-
-
   %body.font-rubik.bg-gray-100
     = partial "header"
     %a.jump{href: "#navigation"}
@@ -52,7 +44,6 @@
         #main.row-start-2.lg:row-start-1.lg:row-span-2.lg:col-start-4.lg:col-span-7{ :data => { :role => "main-content" } }
           .bg-white.mt-8.lg:mt-0.px-4.sm:px-8.lg:px-12.py-6.lg:py-8.rounded.shadow-sm
             .inner= yield
-            #fyfk-widget
         #toc.hidden.lg:block.lg:row-start-1.lg:col-start-11.lg:col-span-2
           .my-4.lg:pl-8.xl:pl-12
             = partial "on_this_page"

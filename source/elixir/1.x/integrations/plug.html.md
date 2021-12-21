@@ -23,7 +23,7 @@ returns a welcome message. To start logging HTTP requests in this app, we'll
 use the `Appsignal.Plug` module.
 
 The Plug integration [doesn’t automatically extract the request’s action
-name](https://docs.appsignal.com/support/known-issues/plug-actions-registered-as-unknown.html).
+name](/support/known-issues/plug-actions-registered-as-unknown.html).
 Call `Appsignal.Transaction.set_action/1` in your action to set the action name
 for your requests to prevent your requests to be categorised as “unknown”.
 
@@ -117,7 +117,7 @@ end
 ```
 
 See the
-[`transaction_event`](https://docs.appsignal.com/elixir/instrumentation/instrumentation.html#decorator-transaction-events)
+[`transaction_event`](/elixir/instrumentation/instrumentation.html#decorator-transaction-events)
 documentation for more information.
 
 ### Plug instrumentation without decorators
@@ -144,7 +144,7 @@ end
 ```
 
 See the [instrumentation
-helpers](https://docs.appsignal.com/elixir/instrumentation/instrumentation.html#instrumentation-helper-functions)
+helpers](/elixir/instrumentation/instrumentation.html#instrumentation-helper-functions)
 documentation for more information.
 
 [hex-appsignal]: https://hexdocs.pm/appsignal/

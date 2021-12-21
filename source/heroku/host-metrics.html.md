@@ -25,7 +25,7 @@ We switched from using the dyno's UUID to the name (e.g. `web.1`), to make sure 
 
 ### 2. Disable AppSignal host metrics collection
 
-Either set the env var `APPSIGNAL_ENABLE_HOST_METRICS` or the `:enable_host_metrics` config option to `false` ([Ruby](/ruby/configuration/options.html#enable_host_metrics) / [Elixir](/elixir/configuration/options.html#enable_host_metrics)).
+Set the `enable_host_metrics` config option to `false` ([Ruby](/ruby/configuration/options.html#enable_host_metrics) / [Elixir](/elixir/configuration/options.html#enable_host_metrics) / [Node.js](/nodejs/configuration/options.html#option-enablehostmetrics)).
 
 ### 3. Enable host runtime metrics on Heroku
 

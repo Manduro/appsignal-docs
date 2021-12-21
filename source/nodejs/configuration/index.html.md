@@ -19,7 +19,7 @@ The integration supports loading configuration via options passed to the `Appsig
 const appsignal = new Appsignal({
   active: true,
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>",
+  pushApiKey: "<YOUR API KEY>", // Note: renamed from `apiKey` in version 2.2.5
 });
 ```
 
@@ -47,7 +47,7 @@ If you activate AppSignal per environment, you can set the `active` property of 
 const appsignal = new Appsignal({
   active: process.env.NODE_ENV !== "development",
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>",
+  pushApiKey: "<YOUR API KEY>", // Note: renamed from `apiKey` in version 2.2.5
 });
 ```
 
@@ -59,6 +59,6 @@ Make sure to put `active: false` in your test configuration unless you want to s
 const appsignal = new Appsignal({
   active: process.env.NODE_ENV === "production", // ignored in all envs except production
   name: "<YOUR APPLICATION NAME>",
-  apiKey: "<YOUR API KEY>",
+  pushApiKey: "<YOUR API KEY>", // Note: renamed from `apiKey` in version 2.2.5
 });
 ```

@@ -4,7 +4,11 @@ title: "Installation"
 
 Please follow the [installation guide](/guides/new-application.html) first, when adding a new application to AppSignal.
 
-## Installing Appsignal for Node.js
+## Requirements
+
+Before you can compile the AppSignal package, make sure the build/compilation tools are installed for your system. Please check the [Supported Operating Systems](/support/operating-systems.html) page for any system dependencies that may be required.
+
+## Installation
 
 First, [sign up](https://appsignal.com/users/sign_up) for an AppSignal account and run our automated install tool, which will install `@appsignal/nodejs` and any relevant integrations to your project:
 
@@ -33,8 +37,6 @@ Alternatively, you can manually add the `@appsignal/nodejs` package to your `pac
 }
 ```
 
-!> Installing the AppSignal for Node.js integration builds a native extension. To compile it, macOS users will need to install the [Xcode Developer Tools](https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/). Linux users will need the dependencies outlined [here](https://github.com/nodejs/node-gyp#installation). **Windows is not supported.**
-
 You can then import and use the package in your bundle:
 
 ```js
@@ -43,7 +45,7 @@ const { Appsignal } = require("@appsignal/nodejs");
 const appsignal = new Appsignal({
   active: true,
   name: "<YOUR APPLICATION NAME>"
-  apiKey: "<YOUR API KEY>"
+  pushApiKey: "<YOUR API KEY>" // Note: renamed from `apiKey` in version 2.2.5
 });
 
 // ...all the rest of your code goes here!

@@ -88,11 +88,10 @@ To use host metrics on (Docker) containers, head to the [container host metrics]
 
 ## Dokku support
 
-[Dokku](https://github.com/dokku/dokku) is very much like Heroku's setup. This is why the AppSignal agent thinks it's running on Heroku. The AppSignal integration turns off host metrics for [Heroku][heroku support] automatically, as Heroku doesn't expose runtime metrics for LXC containers. Instead, we recommend using our [Logplex drain][heroku support].
+-> **Note**: Dokku support is available in packages Ruby gem 3.0.13, Elixir package 2.2.0, Node.js package 2.0.0 and newer.
 
-Since Dokku emulates Heroku's environment by setting the `DYNO` environment variable, host metrics are disabled by default on Dokku as well. To turn them on anyway, you can unset the `DYNO` environment variable for your app. This will make AppSignal not recognize the system as Heroku.
+[Dokku](https://github.com/dokku/dokku) has host metrics enabled by default as long as your Dokku application has the `DOKKU_ROOT` environment variable set up.
 
-Please note that unsetting the `DYNO` environment variable can have other effects on your Dokku system. Please check with Dokku if this is possible with your setup.
 
-[heroku support]: /metrics/host-metrics/heroku.html
+[heroku support]: /heroku/host-metrics.html
 [container support]: /metrics/host-metrics/containers.html

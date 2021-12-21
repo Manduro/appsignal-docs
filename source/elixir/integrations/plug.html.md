@@ -16,6 +16,29 @@ instrumentation](/elixir/instrumentation/index.html) documentation.
 More information can be found in the [AppSignal Hex package
 documentation][hex-appsignal].
 
+## Installation
+
+-> Upgrading from AppSignal for Elixir 1.0? Please read [our upgrade guide](/elixir/installation/upgrading-from-1.x-to-2.x.html).
+
+The AppSignal instrumentation for Plug is part of a separate package, which depends on the primary `appsignal` package. Add the `appsignal_plug` package to your `mix.exs` file.
+
+```elixir
+# mix.exs
+defmodule AppsignalPlugExample.MixProject do
+  # ...
+
+  defp deps do
+    [
+      {:plug, "~> 1.0"}, # Or plug_cowboy ~> 2.0
+      {:appsignal_plug, "~> 2.0"}
+      # ...
+    ]
+  end
+end
+```
+
+If you're already using our `appsignal_phoenix` package, it's not necessary to add the `appsignal_plug` package as it's already a dependency of the `appsignal_phoenix` package. See also our [Phoenix integration guide](phoenix.html).
+
 ## Incoming HTTP requests
 
 We'll start out with a small Plug app that accepts `GET` requests to `/` and
@@ -36,7 +59,7 @@ defmodule AppsignalPlugExample do
 end
 ```
 
-This will create a transaction for every HTTP request which is performed on the 
+This will create a transaction for every HTTP request which is performed on the
 endpoint.
 
 ## Custom instrumentation

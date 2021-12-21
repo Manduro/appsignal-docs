@@ -131,6 +131,22 @@ config :phoenix,
 
 If the `filter_parameters` config option is not set, Phoenix will default to `["password"]` as a config. This means that a Phoenix app will not send any passwords to AppSignal without any configuration.
 
+## Node.js
+
+Use the `filterParameters` denylist for basic parameters filtering. This parameter filtering is applied to all parameters of an HTTP request.
+
+Set up parameter filtering using the [`filterParameters` config option](/nodejs/configuration/options.html#option-filterparameters). The `filterParameters` value is an Array of Strings.
+
+```js
+// Example: appsignal.js
+const { Appsignal } = require("@appsignal/nodejs");
+
+const appsignal = new Appsignal({
+  // Other config options
+  filterParameters: ["password", "secret"]
+});
+```
+
 ## Next steps
 
 - [Filter session data](/guides/filter-data/filter-session-data.html) - next step in this guide
