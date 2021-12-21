@@ -696,6 +696,9 @@ sections:
             name: "Overview"
             link: "/api/"
           -
+            name: "GraphQL"
+            link: "/api/graphql-explorer.html"
+          -
             name: "Graphs"
             link: "/api/graphs.html"
           -

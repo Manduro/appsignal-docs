@@ -1,6 +1,10 @@
 ---
 title: "GraphQL Explorer"
 ---
+Use this GraphQL explorer to play around with AppSignal's GraphQL API. The information you see within AppSignal UI is fetched using this API.
+
+## Explorer
+
 <div class="c-form">
   <label for="token" class="c-form__label">Enter your personal API <a href="https://appsignal.com/users/edit" target="_blank">token</a> </label><br>
   <input type="text" id="token" name="token" class="c-form__input">
