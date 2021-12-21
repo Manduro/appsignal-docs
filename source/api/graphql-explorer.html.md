@@ -1,11 +1,11 @@
 ---
 title: "GraphQL Explorer"
 ---
-  <div class="c-form">
-    <label for="token" class="c-form__label">Enter your personal API <a href="https://appsignal.com/users/edit" target="_blank">token</a> </label><br>
-    <input type="text" id="token" name="token" class="c-form__input">
-  </div>
-  <div id="graphiql" style="height: 100vh;">Loading..</div>
+<div class="c-form">
+  <label for="token" class="c-form__label">Enter your personal API <a href="https://appsignal.com/users/edit" target="_blank">token</a> </label><br>
+  <input type="text" id="token" name="token" class="c-form__input">
+</div>
+<div id="graphiql" style="height: 100vh;">Loading..</div>
 
 
 <script crossorigin src="https://unpkg.com/react/umd/react.production.min.js"></script>
